@@ -13,3 +13,9 @@ describe 'StringCalc', ->
       expect(@stringCalc.add('1')).toBe 1
       expect(@stringCalc.add('3')).toBe 3
       expect(@stringCalc.add('10')).toBe 10
+    it 'returns the sum of all numbers in the string', ->
+      expect(@stringCalc.add('1,3')).toBe 4
+      expect(@stringCalc.add('1,3,5')).toBe 9
+      expect(@stringCalc.add('1,3,0')).toBe 4
+      expect(@stringCalc.add('1,13,10')).toBe 24
+
