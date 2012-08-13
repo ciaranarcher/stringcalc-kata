@@ -18,4 +18,13 @@ describe 'StringCalc', ->
       expect(@stringCalc.add('1,3,5')).toBe 9
       expect(@stringCalc.add('1,3,0')).toBe 4
       expect(@stringCalc.add('1,13,10')).toBe 24
+    it 'allows a delimited to be passed', ->
+      @stringCalc.delim = ';'
+      expect(@stringCalc.add('1;2')).toBe 3
+      @stringCalc.delim = '\n'
+      expect(@stringCalc.add('1\n12')).toBe 13
+    it 'delimits on \\n as well as set delimited', ->
+      expect(@stringCalc.add('1\n2,3')).toBe 6
+      @stringCalc.delim = ';'
+      expect(@stringCalc.add('1\n1;2')).toBe 4
 
