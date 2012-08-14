@@ -11,7 +11,9 @@ class StringCalc
 
     total = 0
     for n in numbers
-      total += parseInt(n)
+      parsed = parseInt(n)
+      throw 'negatives not allowed' unless parsed >= 0
+      total += parsed
 
     total
 

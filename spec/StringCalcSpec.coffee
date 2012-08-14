@@ -27,4 +27,7 @@ describe 'StringCalc', ->
       expect(@stringCalc.add('1\n2,3')).toBe 6
       @stringCalc.delim = ';'
       expect(@stringCalc.add('1\n1;2')).toBe 4
+    it 'raises an exception for negative numbers', ->
+      stringCalc = @stringCalc # get around scoping in anon inner function
+      expect(-> stringCalc.add('1\n2,-3')).toThrow 'negatives not allowed'
 
